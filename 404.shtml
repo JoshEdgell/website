@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>404 Not Found</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+.container {
+  text-align: center;
+}
+h1 {
+  display: inline-block;
+  margin: 0 auto;
+}
+iframe {
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>404 Not Found</h1>
+    <br/>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/y6rZfpSL1RQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <h5><a href="http://www.joshedgell.com">Get back to where you belong</a></h5>
+  </div>
+
+</body>
+</html>
