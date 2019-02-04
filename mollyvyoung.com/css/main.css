@@ -1,0 +1,369 @@
+:root {
+  --turquoise: rgb(0,138,128);
+  --turqMiddle: rgb(35,191,180);
+  --turqLight: rgb(149,218,213);
+  --turqWhite: rgb(221,250,248);
+  --maroon: rgb(78,0,44);
+  --maroonMiddle: rgb(125,0,71);
+  --maroonLight: rgb(196,113,160);
+  --maroonWhite: rgb(201,194,201);
+}
+
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--turqLight);
+}
+a:hover {
+  text-decoration: none;
+  color: var(--turqWhite);
+}
+
+p {
+  text-align: center;
+  font-size: 1.15em;
+  margin-top: 2em;
+}
+p:first-child {
+  margin-top: 3em;
+}
+.topRight p {
+  font-size: 1em;
+  padding-left: 2px;
+}
+
+.topBar ul {
+  margin-top: 0;
+  padding: 1em 6em;
+  color: var(--turqWhite);
+  background-color: var(--turquoise);
+  list-style: none;
+}
+.topBar li {
+  display: inline;
+}
+.topBar li + li::before {
+  padding: 0 0.5em;
+  content: " | ";
+}
+
+.title {
+  margin-top: 1em;
+  background-color: var(--maroonMiddle);
+  color: var(--maroonWhite);
+}
+.titleContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 70%;
+  margin-left: 15%;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.titleText {
+  text-align: center;
+}
+.titleText h1 {
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 3.5em;
+  margin: 0;
+  padding: 1em 0 0 0;
+  display: inline-block;
+}
+.titleText h2 {
+  font-size: 2.5em;
+}
+
+.titleLogo {
+  width: 300px;
+}
+
+.logoBox {
+  width: 200px;
+  height:200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.topLeft {
+  width: 0;
+  height: 0;
+  border-top: 100px solid rgb(183,183,183);
+  border-left: 100px solid transparent;
+}
+.topRight {
+  background-color: rgb(107,107,107);
+  width: 100px;
+  height: 100px;
+}
+.topRight p {
+  display: inline-block;
+  font-weight: bold;
+  margin: 0 4px;
+  padding-top: 37px;
+  color: rgb(255,255,255);
+}
+.bottomLeft {
+  width: 100px;
+  height: 100px;
+}
+.bottomRight {
+  width: 0;
+  height: 0;
+  border-top: 100px solid rgb(183,183,183);
+  border-left: 100px solid transparent;
+}
+
+.navBar {
+  margin-top: 1em;
+  position: sticky; top: 0px;
+  width: 100%;
+  background-color: var(--turquoise);
+  display: flex;
+  max-height: 44px;
+}
+.navBar ul {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+  background-color: var(--turquoise);
+  color: var(--turqLight);
+}
+.navBar li {
+  display: inline-block;
+  width: 8em;
+  font-size: 1.5em;
+  padding: 0.1em 0;
+}
+
+.listBegin {
+  display: inline-block;
+  margin-left: calc(50% - 407px);
+}
+.listBegin li:hover {
+  color: var(--turqWhite);
+  cursor: pointer;
+  border-bottom: 3px solid var(--turqWhite);
+}
+.listEnd li:hover {
+  color: var(--turqWhite);
+  cursor: pointer;
+  border-bottom: 3px solid var(--turqWhite);
+}
+label {
+  width: 192px;
+}
+.services:hover {
+  color: var(--turqWhite);
+  border-bottom: 3px solid var(--turqWhite);
+  padding-bottom: 5px;
+  margin-bottom: 0;
+}
+.listMiddle {
+  display: inline;
+}
+.accordion {
+  font-size: 1.5em;
+  overflow: visible;
+}
+.accordion input {
+  display: none;
+}
+.accordion input + label {
+  cursor: pointer;
+  position: relative;
+}
+.accordion .section {
+  padding: 0 5px;
+  background: white;
+  display: block;
+  -moz-transition: height 0.75s, opacity 0.75s;
+  -o-transition: height 0.75s, opacity 0.75s;
+  -webkit-transition: height 0.75s, opacity 0.75s;
+  transition: height 0.75s, opacity 0.75s;
+  opacity: 0;
+  height: 0;
+}
+.accordion input:checked + label + .section {
+  display: block;
+  overflow: auto;
+  height: 7.72em;
+  opacity: 1;
+  background: var(--turquoise);
+}
+.accordion input:checked + label:hover {
+  border: 0;
+  padding-bottom: 8px;
+}
+dt {
+  font-weight: 400;
+  border-bottom: 1px solid var(--turqWhite);
+}
+dt:hover {
+  color: var(--turqWhite);
+  cursor: default;
+}
+dt:first-child {
+  border-top: 1px solid var(--turqWhite);
+}
+dl {
+  margin: 0;
+}
+
+.mollyInfo {
+  width: 95%;
+  margin-left: 2.5%;
+  margin-top: 2em;
+  min-height: 10em;
+}
+.mollyInfo h5 {
+  font-weight: bold;
+}
+.pictureInfoDiv {
+  display: flex;
+  justify-content: space-between;
+}
+/* Make .mollyPicture display to hide using a media query when on mobile */
+.mollyPicture {
+  width: 250px;
+  height: 375px;
+  margin-top: 2em;
+  margin-left: 2%;
+}
+.mollyPicture img {
+  width: 250px;
+  height: 375px;
+}
+.mollyBio {
+  width: 50%;
+  margin-top: 2em;
+}
+.mollyBio p:first-child {
+  margin-top: 0;
+}
+.third {
+  font-family: 'Playfair Display', serif;
+  width: 25%;
+  margin-top: 2em;
+  margin-bottom: 3.5em;
+  background-color: var(--turqWhite);
+}
+
+.expertiseContainer {
+  margin-top: 2em;
+  width: 100%;
+  display: flex;
+}
+
+.technical {
+  border: 3px solid var(--turquoise);
+  background-color: var(--turqWhite);
+}
+.technical h5 {
+  text-align: center;
+}
+.technical ul {
+  list-style: none;
+}
+.industry {
+  background-color: var(--turqWhite);
+  border: 3px solid var(--turquoise);
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.industry h5 {
+  text-align: center;
+}
+.industry ul {
+  list-style: none;
+}
+
+.about {
+  display: none;
+}
+.coaching {
+  display: none;
+}
+.coaching:hover{
+  cursor: default;
+}
+.other {
+  width: 80%;
+  margin-left: 10%;
+  text-align: center;
+  display: none;
+}
+.other h2 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.other p {
+  font-size: 1.15em;
+}
+.other ul {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2em;
+}
+.other li {
+  font-size: 1.15em;
+  padding-bottom: 1em;
+}
+
+.contact h2 {
+  margin-bottom: 0;
+}
+.contactForm {
+  width: 80%;
+  margin-left: 10%;
+}
+.contactForm p {
+  font-size: 1.5em;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.contactForm input, textarea {
+  float: left;
+}
+.contactForm textarea {
+  width: 100%;
+  height: 10em;
+}
+
+
+.testimonialCarousel {
+  margin-top: 2em;
+  height: 15em;
+  background-color: var(--turqMiddle);
+}
+.carousel-slide {
+  height: 15em;
+}
+.carousel-caption {
+  top: 1em;
+  height: 15em;
+}
+.carousel-item img {
+  max-width: 10em;
+  height: 15em;
+}
+
+.bottomBar ul {
+  background-color: var(--turquoise);
+  margin: 0;
+  padding: 1em 6em;
+  color: var(--turqWhite);
+  list-style: none;
+}
+.bottomBar li {
+  display: inline;
+  padding: 0 2em;
+}

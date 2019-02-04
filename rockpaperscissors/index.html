@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>RPS 2.0</title>
+    <link rel="shortcut icon" type="image" href="images/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+
+    <h1 id="title">Rock, Paper, Scissors 2.0</h1>
+    <h3 id="subtitle">The game that learns how to beat you</h3>
+
+    <div id="gameBox">
+
+      <div id="playerSpace">
+      </div>
+      <div id="computerSpace">
+      </div>
+      <div id="buttons">
+        <button id="rock">Play Rock</button>
+        <button id="paper">Play Paper</button>
+        <button id="scissors">Play Scissors</button>
+      </div>
+
+      <div class="Modal" id="resultsModal">
+        <button id="closeResults">Next Game</button>
+        <button id="statButton">View Stats</button>
+      </div>
+
+      <div class="Modal" id="statModal">
+        <div id="statBox">
+          <div class="stats">
+            <h3>W/L/T Stats</h3>
+            <table>
+              <tr>
+                <th></th>
+                <th>Rock</th>
+                <th>Paper</th>
+                <th>Scissors</th>
+              </tr>
+              <tr>
+                <td>Wins</td>
+                <td id="rockWins">0</td>
+                <td id="paperWins">0</td>
+                <td id="scissorsWins">0</td>
+              </tr>
+              <tr>
+                <td>Losses</td>
+                <td id="rockLosses">0</td>
+                <td id="paperLosses">0</td>
+                <td id="scissorsLosses">0</td>
+              </tr>
+              <tr>
+                <td>Ties</td>
+                <td id="rockTies">0</td>
+                <td id="paperTies">0</td>
+                <td id="scissorsTies">0</td>
+              </tr>
+            </table>
+          </div>
+          <div class="stats">
+            <h3>Rock Stats</h3>
+            <table>
+              <tr>
+                <th></th>
+                <th>After Win</th>
+                <th>After Loss</th>
+                <th>After Tie</th>
+              </tr>
+              <tr>
+                <td>Rock</td>
+                <td id="rockWinRock">0</td>
+                <td id="rockLossRock">0</td>
+                <td id="rockTieRock">0</td>
+              </tr>
+              <tr>
+                <td>Paper</td>
+                <td id="rockWinPaper">0</td>
+                <td id="rockLossPaper">0</td>
+                <td id="rockTiePaper">0</td>
+              </tr>
+              <tr>
+                <td>Scissors</td>
+                <td id="rockWinScissors">0</td>
+                <td id="rockLossScissors">0</td>
+                <td id="rockTieScissors">0</td>
+              </tr>
+            </table>
+          </div>
+          <div class="stats">
+            <h3>Paper Stats</h3>
+            <table>
+              <tr>
+                <th></th>
+                <th>After Win</th>
+                <th>After Loss</th>
+                <th>After Tie</th>
+              </tr>
+              <tr>
+                <td>Rock</td>
+                <td id="paperWinRock">0</td>
+                <td id="paperLossRock">0</td>
+                <td id="paperTieRock">0</td>
+              </tr>
+              <tr>
+                <td>Paper</td>
+                <td id="paperWinPaper">0</td>
+                <td id="paperLossPaper">0</td>
+                <td id="paperTiePaper">0</td>
+              </tr>
+              <tr>
+                <td>Scissors</td>
+                <td id="paperWinScissors">0</td>
+                <td id="paperLossScissors">0</td>
+                <td id="paperTieScissors">0</td>
+              </tr>
+            </table>
+          </div>
+          <div class="stats">
+            <h3>Scissors Stats</h3>
+            <table>
+              <tr>
+                <th></th>
+                <th>After Win</th>
+                <th>After Loss</th>
+                <th>After Tie</th>
+              </tr>
+              <tr>
+                <td>Rock</td>
+                <td id="scissorsWinRock">0</td>
+                <td id="scissorsLossRock">0</td>
+                <td id="scissorsTieRock">0</td>
+              </tr>
+              <tr>
+                <td>Paper</td>
+                <td id="scissorsWinPaper">0</td>
+                <td id="scissorsLossPaper">0</td>
+                <td id="scissorsTiePaper">0</td>
+              </tr>
+              <tr>
+                <td>Scissors</td>
+                <td id="scissorsWinScissors">0</td>
+                <td id="scissorsLossScissors">0</td>
+                <td id="scissorsTieScissors">0</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+
+        <button id="closeStats">Next Game</button>
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+      <script src="js/main.js"></script>
+  </body>
+</html>

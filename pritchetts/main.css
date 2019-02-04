@@ -1,0 +1,381 @@
+body {
+  font-family: 'Nixie One', cursive;
+  background: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* font-family: 'Cinzel Decorative', cursive; */
+
+.topinfo {
+  position: fixed;
+  background-color: rgb(158,101,79);
+  display: flex;
+  justify-content: flex-end;
+  top: 0;
+  left: 0;
+  width: calc(100% - 27em);
+  height: 2em;
+  z-index: 1;
+}
+
+.phoneNumber {
+  position: relative;
+  height: 2em;
+  text-align: center;
+  padding: 0 2em;
+  color: rgb(255,255,255);
+  background-color: rgb(158,101,79);
+  -moz-transition: background-color 0.75s ease-out;
+  -o-transition: background-color 0.75s ease-out;
+  -webkit-transition: background-color 0.75s ease-out;
+  transition: background-color 0.75s ease-out;
+}
+.phoneNumber:hover {
+  background-color: rgb(255,255,255);
+  color: rgb(158,101,79);
+}
+.topinfo p, label {
+  margin-top: 0.25em;
+}
+
+.accordion {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  background-color: rgb(158,101,79);
+  overflow: visible;
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+  padding-top: 0;
+  margin-top: 0;
+}
+.site {
+  right: 0;
+  width: 15em;
+}
+.locations {
+  right: 15em;
+  width: 12em;
+}
+.accordion input:checked + label {
+  background: rgb(183,123,100);
+}
+.accordion input {
+  display: none;
+}
+.accordion input + label {
+  -moz-transition: background 0.75s;
+  -o-transition: background 0.75s;
+  -webkit-transition: background 0.75s;
+  transition: background 0.75s;
+  color: rgb(255,255,255);
+  cursor: pointer;
+  display: block;
+  position: relative;
+  margin: 0;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 1em;
+}
+.accordion input + label:hover {
+  background: rgb(183,123,100);
+}
+.accordion .section, .section2 {
+  background: rgb(255,255,255);
+  -moz-transition: height 0.75s, opacity 0.75s;
+  -o-transition: height 0.75s, opacity 0.75s;
+  -webkit-transition: height 0.75s, opacity 0.75s;
+  transition: height 0.75s, opacity 0.75s;
+  opacity: 0;
+  height: 0;
+}
+.accordion dl {
+  margin: 0;
+}
+.accordion dt {
+  padding: 0.25em 1.5em;
+  border-bottom: 1px solid lightgray;
+}
+.accordion dt:hover {
+  background: rgb(232, 201, 190);
+}
+.accordion input:checked + label + .section {
+  display: block;
+  overflow: auto;
+  height: 12.4em;
+  opacity: 1;
+  background: rgb(255,255,255);
+}
+.accordion input:checked + label + .section2 {
+  display: block;
+  overflow: auto;
+  height: 6.2em;
+  opacity: 1;
+  background: rgb(255,255,255);
+}
+
+.headerBox {
+  position: absolute;
+  top: 31px;
+  left: 0;
+  width: 100%;
+  height: 125px;
+  font-family: 'Cinzel Decorative', cursive;
+}
+.logo {
+  margin-top: 1.25em;
+  margin-left: 2em;
+  display: inline-block;
+}
+.headerBox h1 {
+  font-size: 3em;
+  margin-top: 0.2em;
+  margin-bottom: 0;
+}
+.headerBox h3 {
+  font-size: 1.5em;
+  margin-top: -0.5em;
+}
+
+
+.navBar {
+  position: absolute;
+  top: 157px;
+  left: 0;
+  height: 31px;
+  width: 100%;
+  background-color: rgb(89,89,89);
+  color: rgb(255,255,255);
+}
+.navBar ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0.3em;
+}
+li a {
+  color: rgb(255,255,255);
+}
+li a:hover {
+  text-decoration: underline;
+  color: rgb(255,255,255);
+}
+
+
+.sample {
+  position: absolute;
+  top: 188px;
+  left: 0;
+  height: 400px;
+  width: 100%;
+  display: flex;ß
+}
+.sampleText {
+  height: 100%;
+  width: 40%;
+}
+.sampleText h2 {
+  text-align: center;
+  margin-top: 2em;
+}
+.sampleText p {
+  width: 90%;
+  margin-left: 5%;
+  text-align: center;
+}
+.sampleScroll {
+  width: 50%;
+  margin-left: 5%;
+  /* margin-top: 2em; */
+}
+.carousel {
+  width: 100%;
+  height: 364px;
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+
+
+
+
+
+.story {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  top: 552px;
+  left: 0;
+  height: 300px;
+}
+.founder {
+  width: 40%;
+}
+.founder img {
+  float: right;
+  margin-right: 4em;
+}
+.storyText {
+  width: 60%;
+  text-align: center;
+}
+.storyText h2 {
+  margin-top: 0.75em;
+}
+.storyText p {
+  margin-top: 0.25em;
+}
+
+.work {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  top: 860px;
+  left: 0;
+  height: 300px;
+}
+
+.team {
+  position: relative;
+  width: 32%;
+}
+.team img {
+  display: block;
+  float: right;
+  overflow: hidden;
+}
+.team h2 {
+  position: absolute;
+  color: rgb(255,255,255);
+  text-align: right;
+  width: calc(100% - 1em);
+}
+.workText {
+  width: 32%;
+  text-align: center;
+}
+.workText p {
+  padding: 10% 0;
+}
+.design {
+  position: relative;
+  width: 32%;
+}
+.design h2 {
+  position: absolute;
+  color: rgb(255,255,255);
+  margin-left: 1em;
+  bottom: 0;
+}
+
+
+
+
+
+
+
+.types {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  top: 1160px;
+  left: 0;
+  height: 200px;
+  width: 100%;
+}
+
+.rooms {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 60%;
+}
+.rooms h4 {
+  display: block;
+  padding: 0.25em 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translate(0,50%);
+  text-align: center;
+  border-style: inset;
+  border-width: 6px;
+  border-color: rgb(183,123,100);
+}
+
+.needs {
+  position: relative;
+  width: 39.5%;
+}
+.needs h2 {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.room {
+  position: relative;
+  width: 20.1%;
+}
+
+.contact {
+  background-color: rgb(183,123,100);
+  position: absolute;
+  top: 1360px;
+  left: 0;
+  height: 150px;
+  width: 100%;
+}
+.container {
+  width: 70%;
+  margin-left: 15%;
+  display: flex;
+  justify-content: space-around;
+}
+.container ul {
+  list-style: none;
+  margin-bottom: 0;
+}
+.clients {
+  width: 22.5%;
+}
+.workers {
+  width: 22.5%;
+}
+.other {
+  width: 22.5%;
+}
+
+
+.social {
+  width: 30%;
+  text-align: center;
+}
+.fa-pinterest-square {
+  font-size: 2em;
+  margin: 0 0.25em;
+}
+.fa-facebook {
+  font-size: 2em;
+  margin: 0 0.25em;
+}
+.fa-twitter-square {
+  font-size: 2em;
+  margin: 0 0.25em;
+}
+.fa-instagram {
+  font-size: 2em;
+  margin: 0 0.25em;
+}

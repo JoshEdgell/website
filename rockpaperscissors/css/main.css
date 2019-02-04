@@ -1,0 +1,336 @@
+body {
+  background-color: #000000;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  min-width: 738px;
+  width: 100%;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+#title {
+  font-family: Audiowide;
+  font-size: 3em;
+  color: #ff00de;
+  -webkit-animation: neonGlow 1.5s ease-in-out infinite alternate;
+  -moz-animation: neonGlow 1.5s ease-in-out infinite alternate;
+  animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+#subtitle {
+  color: #ffffff;
+  font-family: Audiowide;
+}
+
+#gameBox {
+  background-color: #ffffff;
+  width: 70%;
+  margin-left: 15%;
+  /* height: 500px; */
+  /* border: 5px solid #ffdd1b; */
+  border: 5px solid #b6ff00;
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#playerSpace {
+  width: 225px;
+  height: 250px;
+  margin-right: 5%;
+}
+
+#playerSpace img {
+  margin-top: 100px;
+  margin-left: 40px;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#computerSpace {
+  width: 225px;
+  height: 250px;
+  margin-left: 5%;
+}
+
+#computerSpace img {
+  margin-top: 100px;
+  margin-right: 40px;
+  float: right;
+}
+
+#buttons {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+button {
+  color: #228dff;
+  background-color: #000000;
+  border: 3px solid #228dff;
+  border-radius: 5px;
+  font-family: Audiowide;
+  font-size: 1.5em;
+  padding: 0.5em;
+  outline: none;
+}
+
+#startButton {
+  -webkit-animation: buttonClick 0.1s;
+  animation: buttonClick 0.1s;
+}
+
+button:hover {
+  color: #b6ff00;
+  border: 3px solid #b6ff00;
+}
+
+table, th, td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+th {
+  background: lightgray;
+}
+
+#startPlayer {
+  -webkit-animation: animatePlayer 2s;
+  animation: animatePlayer 2s;
+}
+
+#startComputer {
+  -webkit-animation: animateComputer 2s;
+  animation: animateComputer 2s;
+}
+
+.Modal {
+  position: fixed;
+  height: 20.5em;
+  width: 70%;
+  left: 15%;
+  margin-top: -0.4em;
+  border: 5px solid blue;
+  border-radius: 25px;
+  background: lightgray;
+  text-align: center;
+}
+
+.Modal p {
+  font-size: 4em;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+#statModal {
+  display: none;
+  height: 30em;
+}
+
+#statBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stats {
+  margin: 1em 4em;
+}
+
+#resultsModal {
+  display: none;
+}
+
+#resultText {
+  text-align: center;
+}
+
+#statButton {
+  display: block;
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+
+/* neon glow borrowed from (https://codepen.io/FelixRilling/pen/qzfoc) */
+@-webkit-keyframes neonGlow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+  }
+}
+
+@-webkit-keyframes animtePlayer {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  16% {
+    -webkit-transform: translate(-10px, -80px) rotate(-15deg);
+    transform: translate(-10px, -80px) rotate(-15deg);
+  }
+  32% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  48% {
+    -webkit-transform: translate(-10px, -80px) rotate(-15deg);
+    transform: translate(-10px, -80px) rotate(-15deg);
+  }
+  64% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  80% {
+    -webkit-transform: translate(-10px, -80px) rotate(-15deg);
+    transform: translate(-10px, -80px) rotate(-15deg);
+  }
+  96% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+@-webkit-keyframes animteComputer {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  16% {
+    -webkit-transform: translate(10px, -80px) rotate(15deg);
+    transform: translate(10px, -80px) rotate(15deg);
+  }
+  32% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  48% {
+    -webkit-transform: translate(10px, -80px) rotate(15deg);
+    transform: translate(10px, -80px) rotate(15deg);
+  }
+  64% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  80% {
+    -webkit-transform: translate(10px, -80px) rotate(15deg);
+    transform: translate(10px, -80px) rotate(15deg);
+  }
+  96% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+@-webkit-keyframes buttonClick {
+  0% {
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+  }
+  50% {
+    -webkit-transform: scale(0.95,0.95);
+    transform: scale(0.95,0.95);
+  }
+  100% {
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+  }
+}
+
+
+
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+  }
+}
+
+@keyframes animatePlayer {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  16% {
+    -webkit-transform: translate(-10px, -80px) rotate(-15deg);
+    transform: translate(-10px, -80px) rotate(-15deg);
+  }
+  32% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  48% {
+    -webkit-transform: translate(-10px, -80px) rotate(-15deg);
+    transform: translate(-10px, -80px) rotate(-15deg);
+  }
+  64% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  80% {
+    -webkit-transform: translate(-10px, -80px) rotate(-15deg);
+    transform: translate(-10px, -80px) rotate(-15deg);
+  }
+  96% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes animateComputer {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  16% {
+    -webkit-transform: translate(10px, -80px) rotate(15deg);
+    transform: translate(10px, -80px) rotate(15deg);
+  }
+  32% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  48% {
+    -webkit-transform: translate(10px, -80px) rotate(15deg);
+    transform: translate(10px, -80px) rotate(15deg);
+  }
+  64% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  80% {
+    -webkit-transform: translate(10px, -80px) rotate(15deg);
+    transform: translate(10px, -80px) rotate(15deg);
+  }
+  96% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes buttonClick {
+  0% {
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+  }
+  50% {
+    -webkit-transform: scale(0.95,0.95);
+    transform: scale(0.95,0.95);
+  }
+  100% {
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+  }
+}

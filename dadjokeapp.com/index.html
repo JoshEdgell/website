@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="DadJokes">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>The Dad Joke App</title>
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <!-- App Controller -->
+    <script src="/js/app.js"></script>
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Bangers" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image" href="/img/favicon.png"/>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body ng-controller="MainController as ctrl">
+
+    <!-- Navbar -->
+
+    <div class="pos-f-t">
+      <nav class="navbar navbar-dark bg-primary">
+        <button id="hamburger" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-primary p-4">
+
+
+
+
+
+          <!-- Login Form -->
+
+          <form ng-submit="ctrl.login()" class="text-white h4" id="loginForm" ng-show="!ctrl.userLoggedIn">
+
+            <div class="form-group text-white h4">
+              <label for="loginUsername">username</label>
+              <input type="text" class="form-control" id="loginUsername" aria-describedby="loginUsername" placeholder="Enter User Name" ng-model="ctrl.loginInfo.username">
+            </div>
+
+            <div class="form-group">
+              <label for="loginPassword">password</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Password" ng-model="ctrl.loginInfo.password">
+            </div>
+            <ul>
+              <li class="invalid" ng-show="ctrl.loginFail">
+                Incorrect username or password
+              </li>
+            </ul>
+
+            <!-- <button type="submit" id="loginButton" class="btn btn-primary hamburgerToggler">Login</button> -->
+            <button type="submit" id="loginButton" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-primary hamburgerToggler" data-toggle="modal" data-target="#createUserModal">
+              Create an Account
+            </button>
+
+          </form>
+
+
+
+
+
+
+          <!-- Logged User Navbar -->
+
+          <div ng-show="ctrl.userLoggedIn">
+            <ul class="text-white h4">
+              <li ng-repeat="user in ctrl.allUsers">
+                <a class="hamburgerToggler userLink" data-toggle="modal" data-target="#displayUserModal" ng-click="ctrl.displayUser(user)">
+                  {{ user.firstName }} {{ user.lastName }}
+                </a>
+              </li>
+            </ul>
+            <button type="button" class="btn btn-primary hamburgerToggler" ng-click="ctrl.logout()">
+              Logout
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Create User Modal -->
+    <div class="modal fade" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="createUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createUserModalLabel">Create A User</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <!-- Create User Form -->
+            <form class="createUser" id="createUserForm">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="Enter First Name" ng-model="ctrl.newUser.firstName">
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="Enter Last Name" ng-model="ctrl.newUser.lastName">
+              </div>
+
+              <div class="form-group">
+                <label for="username">username</label>
+                <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Enter User Name" ng-model="ctrl.newUser.username">
+                <ul>
+                  <li class="invalid" ng-show="ctrl.invalidUsername">
+                    That username is already taken
+                  </li>
+                </ul>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="ctrl.newUser.password">
+                <ul>
+                  <li class="invalid" ng-show="ctrl.passwordFail.min">
+                    My password needed 8 characters, so it's "Snow White & the Seven Dwarves" (password too short)
+                  </li>
+                  <li class="invalid" ng-show="ctrl.passwordFail.max">
+                    No joke here, your password is just too long (password more than 20 characters)
+                  </li>
+                  <li class="invalid" ng-show="ctrl.passwordFail.capital">
+                    What's the capital of Texas?  T! (use a capital letter)
+                  </li>
+                  <li class="invalid" ng-show="ctrl.passwordFail.spaces">
+                    Where does an astronaut hang out?  At the space bar! (no spaces)
+                  </li>
+                  <li class="invalid" ng-show="ctrl.passwordFail.digit">
+                    4, 6, 8, and 9 were murdered.  2, 3, 5, and 7 are prime suspects (use a number)
+                  </li>
+                </ul>
+              </div>
+
+              <div class="form-group">
+                <label for="password2">Verify Password</label>
+                <input type="password" class="form-control" id="password2" placeholder="Verify Password" ng-model="ctrl.newUser.password2">
+              </div>
+              <ul>
+                <li class="invalid" ng-show="ctrl.newUser.password !== ctrl.newUser.password2">
+                  Passwords do not match
+                </li>
+              </ul>
+              <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Create User" ng-click="ctrl.createUser()">
+                <input type="submit" class="btn btn-secondary" data-dismiss="modal" value="Cancel">
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Display User Modal -->
+    <div class="modal fade" id="displayUserModal" tabindex="-1" role="dialog" aria-labelledby="displayUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="displayUserModalLabel">
+              {{ctrl.targetUser.firstName}} {{ctrl.targetUser.lastName}}
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div ng-show="ctrl.targetMatchesLogged">
+              <!-- If the logged user is looking at his own modal, he'll be able to edit his settings -->
+              <h2>Edit {{ctrl.targetUser.username}}</h2>
+            </div>
+            <div class="favoriteJokes" ng-show="ctrl.targetUser.favoriteJokes.length > 0">
+              <h4>
+                {{ctrl.targetUser.firstName}}'s Favorite Jokes
+              </h4>
+              <ul>
+                <li ng-repeat="joke in ctrl.targetUser.favoriteJokes">
+                  {{joke.joke}}
+                  <!-- <i class="{{joke.api_id}} fas fa-star" ng-click="ctrl.favorite(joke)" ng-show="ctrl.targetMatchesLogged"></i>
+                  <i class="{{joke.api_id}} far fa-star" ng-click="ctrl.favorite(joke)" ng-show="!ctrl.targetMatchesLogged"></i> -->
+
+                  <div class="emoji-toggle">
+                    <input type="checkbox" class="toggle" id="{{joke.api_id}}" ng-click="ctrl.favorite(joke)">
+                    <div class="emoji"></div>
+                  </div>
+
+
+
+                </li>
+              </ul>
+            </div>
+            <div class="createdJokes" ng-show="ctrl.targetUser.createdJokes.length > 0">
+              <h4>
+                {{ctrl.targetUser.firstName}}'s Created Jokes
+              </h4>
+              <ul>
+                <li ng-repeat="joke in ctrl.targetUser.createdJokes" class="created {{joke.api_id}}">
+                  {{joke.joke}}
+                  <!-- <i class="far fa-star {{joke.api_id}}" ng-click="ctrl.favorite(joke)" ng-show="!ctrl.targetMatchesLogged"></i> -->
+
+                  <div class="emoji-toggle" ng-show="!ctrl.targetMatchesLogged">
+                    <input type="checkbox" class="toggle" id="{{joke.api_id}}" ng-click="ctrl.favorite(joke)">
+                    <div class="emoji"></div>
+                  </div>
+
+
+                    <button class="btn btn-primary" ng-click="ctrl.deleteJoke(joke._id)" ng-show="ctrl.targetMatchesLogged">Delete</button>
+                    <div class="dropdown" ng-show="ctrl.targetMatchesLogged">
+                      <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="ctrl.jokeToEdit = joke">
+                       Edit
+                      </button>
+                        <form class="dropdown-menu p-4">
+                          <div class="form-group">
+                            <label for="jokeText">Joke Text</label>
+                            <input type="text" class="form-control" ng-model="ctrl.jokeToEdit.joke"></input>
+                          </div>
+                          <button type="submit" class="btn btn-primary" ng-click="ctrl.editJoke()">Edit Joke</button>
+                          <button type="submit" class="btn btn-secondary" data-toggle="dropdown">Cancel</button>
+                        </form>
+                    </div>
+                </li>
+              </ul>
+            </div>
+            <div class="createAJoke" ng-show="ctrl.targetMatchesLogged">
+              <h4>
+                Create A Joke
+              </h4>
+              <form ng-submit="ctrl.createJoke()">
+                <div class="form-group">
+                  <label for="creatJokeText">Joke Text</label>
+                  <input type="text" class="form-control" id="createJokeText" placeholder="Joke Text" ng-model="ctrl.createJokeText">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+
+
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Main Screen -->
+
+    <div class="container">
+      <h1 id="title">
+        The Dad Joke App
+      </h1>
+      <img src="/img/background.jpg" alt="background" id="backgroundImage"/>
+      <h3 id="subtitle">
+        The Mother of All Dad Joke Apps
+      </h3>
+
+      <div id="jokePane">
+        <button id="getJokeButton" ng-click="ctrl.getRandomJoke()">Get New Joke</button>
+        <ul>
+          <li>{{ctrl.currentJoke.joke}}
+            <!-- <i class="{{ctrl.currentJoke.api_id}} far fa-star" ng-click="ctrl.favorite(ctrl.currentJoke)"></i> -->
+
+            <div class="emoji-toggle">
+              <input type="checkbox" class="toggle" ng-click="ctrl.favorite(ctrl.currentJoke)">
+              <div class="emoji"></div>
+            </div>
+
+
+
+
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
